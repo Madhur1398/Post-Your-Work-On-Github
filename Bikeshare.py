@@ -111,7 +111,7 @@ def load_data(city, month, day):
     df['Weekday'] = df['Start Time'].dt.weekday_name
     df['Start Hour'] = df['Start Time'].dt.hour
 
-    # filter the data according to month and weekday into two new DataFrames
+    #this filters the data acc. to month and weekday into two new DataFrames
     if isinstance(month, list):
         df = pd.concat(map(lambda month: df[df['Month'] ==
                            (months.index(month)+1)], month))
@@ -137,7 +137,7 @@ def time_stats(df):
           'travel...\n')
     start_time = time.time()
 
-    # display the most common month
+    #It displays the most common month
     most_common_month = df['Month'].mode()[0]
     print('For the selected filter, the month with the most travels is: ' +
           str(months[most_common_month-1]).title() + '.')
